@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Airline from "./Airline"
 
 class Airlines extends Component {
   state = {
@@ -16,9 +17,20 @@ class Airlines extends Component {
     })
   }
   render(){
-    const airlines = this.state.airlines.map( (airline, index) => {
-      return (<li key={index}>{airline.attributes.name}</li>)
-    })
+    let airlines
+    if (this.state.airlines.length > 0){
+      airlines = this.state.airlines.map((airline, index)=>{
+        return (
+          <Airline
+            key={index}
+            name={airline.attributes.name}
+            image_url={airline.attributes.image_url}
+            slug={airline.attributes.slug}
+          />
+        )
+      })
+    }
+
     return(
       <div className="home">
         <div className='header'>
