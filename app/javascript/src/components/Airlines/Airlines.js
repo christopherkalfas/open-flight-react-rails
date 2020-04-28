@@ -1,7 +1,36 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Airline from "./Airline"
+import styled from "styled-components"
 
+const Home = styled.div`
+  text-align:center;
+`
+
+const Header = styled.div`
+    padding:100px 100px 10px 100px;
+  
+  h1 {
+    font-size:42px;
+  }
+`
+const Subheader = styled.p`
+  font-weight:300;
+  font-size:26px;
+`
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+  padding:20px;
+
+  > div {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+  }
+`
 class Airlines extends Component {
   state = {
     airlines: []
@@ -17,6 +46,7 @@ class Airlines extends Component {
     })
   }
   render(){
+
     let airlines
     if (this.state.airlines.length > 0){
       airlines = this.state.airlines.map((airline, index)=>{
@@ -32,17 +62,21 @@ class Airlines extends Component {
     }
 
     return(
-      <div className="home">
-        <div className='header'>
-        <h1>OpenFlights</h1>
-          <p className= "subheader">Telling how it is when you fly.</p>
-        </div>
-        <div className="grid">
-          <ul>
-            {airlines}
-          </ul>
-        </div>
-      </div>
+      <Home>
+        <div className="home">
+          <div className='header'>
+          <Header>
+            <h1>OpenFlights</h1>
+            <Subheader>
+              Telling how it is when you fly.
+            </Subheader>
+          </Header>
+          </div>
+          <Grid>
+              {airlines}
+          </Grid>
+        </div>  
+      </Home>
     )
   }
 }
