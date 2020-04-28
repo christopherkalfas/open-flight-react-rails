@@ -63,19 +63,16 @@ class Airlines extends Component {
 
     return(
       <Home>
-        <div className="home">
-          <div className='header'>
-          <Header>
-            <h1>OpenFlights</h1>
-            <Subheader>
-              Telling how it is when you fly.
-            </Subheader>
-          </Header>
-          </div>
-          <Grid>
-              {airlines}
-          </Grid>
-        </div>  
+        <Header>
+          <h1>OpenFlights</h1>
+          <Subheader>
+            Telling how it is when you fly.
+          </Subheader>
+        </Header>
+
+        <Grid>
+            {airlines}
+        </Grid>  
       </Home>
     )
   }
